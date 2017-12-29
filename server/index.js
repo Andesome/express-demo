@@ -49,32 +49,36 @@ testRoute.post('/user/:action',function (req,res) {
     // res.send('ok');
 });
 
-
+/*------------- 处理函数 --------------------------*/
 //登录
 function login(date,res) {
+    // some code ...
     res.json({
         status:1,
         msg:"ok,login success"
     });
     console.log('登录',date)
 }
+
 //注册
 function register(date,res) {
+    // some code ...
     res.json({
         status:1,
         msg:"ok,register success"
     });
     console.log('注册',date)
 }
+
 //设置密码
 function setPassword(date,res) {
+    // some code ...
     res.json({
         status:1,
         msg:"ok,reset password success"
     });
     console.log('设置密码',date)
 }
-
 
 
 app.use('/test',testRoute);
