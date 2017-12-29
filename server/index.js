@@ -30,10 +30,50 @@ testRoute.get('/user/get_list',function (req,res) {
 testRoute.get('/setName/:name',function (req,res) {
     console.log(req.params.name);
 });
-testRoute.post('/user/set_password',function (req,res) {
-    console.log('密码',req.params,req.query,req.body);
-    res.send('ok');
+testRoute.post('/user/:action',function (req,res) {
+    console.log('---',req.params,req.query,req.body);
+    var body  = req.body;
+    switch (req.params.action){
+        case 'login':
+            login(body,res);
+            break;
+        case 'register':
+            register(body,res);
+            break;
+        case 'password':
+            setPassword(body,res);
+            break;
+        default:
+            return false;
+    }
+    // res.send('ok');
 });
+
+
+//登录
+function login(date,res) {
+    res.json({
+        status:1,
+        msg:"ok,login success"
+    });
+    console.log('登录',date)
+}
+//注册
+function register(date,res) {
+    res.json({
+        status:1,
+        msg:"ok,register success"
+    });
+    console.log('注册',date)
+}
+//设置密码
+function setPassword(date,res) {
+    res.json({
+        status:1,
+        msg:"ok,reset password success"
+    });
+    console.log('设置密码',date)
+}
 
 
 

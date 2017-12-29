@@ -10,7 +10,14 @@
 
 <script src="https://cdn.bootcss.com/axios/0.17.1/axios.min.js"></script>
 <script>
-    axios.get('/api/server/test/user?id=123')
+    // axios.get('/api/server/test/user?id=123')
+    //     .then(function (response) {
+    //         console.log(response);
+    //     })
+    //     .catch(function (error) {
+    //         console.log(error);
+    //     });
+    axios.post('/api/server/test/user/register',{name:'lll',password:'abcdefg'})
         .then(function (response) {
             console.log(response);
         })
@@ -18,7 +25,15 @@
             console.log(error);
         });
 
-    axios.post('/api/server/test/user/set_password',{password:'abcdefg'})
+    axios.post('/api/server/test/user/login',{name:'lll',password:'lll123456'})
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+    axios.post('/api/server/test/user/password',{password:'abcdefg'})
         .then(function (response) {
             console.log(response);
         })
